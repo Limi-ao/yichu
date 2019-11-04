@@ -29,7 +29,9 @@
                             :props="defaultProps" >   
                             <span class="custom-tree-node" slot-scope="{ node,data }">
                                 <img style="color:#09f;" src="../assets/img/F.png" v-if="data.subType=='门架式'">
+                                <img src="../assets/img/N.png" v-else-if="node.label.substr(0,1)!=='K'">
                                 <img src="../assets/img/T.png" v-else>
+
                                 <span>{{ node.label }}</span>   
                                 <!-- <span>{{ data.subType }}</span>  -->
                             </span>                       
@@ -364,7 +366,13 @@ import axios from 'axios'
            //移出队列
            toggleSelection(multipleSelection) {
                 console.log('移出',this.multipleSelection)
-                this.shijiTable.remove(this.multipleSelection)
+                for(var m=0;m<this.shijiTable.length;m++){
+                    for(var n=0;n<this.multipleSelection.length;n++){
+                        if(this.shijiTable[m].infoId===this.multipleSelection[n].infoId){
+                            this.shijiTable.splice(m,1)
+                        }
+                    }
+                }
             },
            //清空队列
            handqk(shijiTable){

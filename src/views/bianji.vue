@@ -53,17 +53,17 @@
                         <el-checkbox v-model="checked">消息是否添加图片</el-checkbox>
                         <div class="bj-img-rbottom" >
                           <span  v-for="(gimg,index) in 63" :key="index" style="margin-left:10px;margin-right:5px;display:inline-block;">
-                            <img v-if="index<10"  :src="require(`@/assets/img/qbbimg/00${gimg}.BMP`)">
-                            <span style="display:block;">{{index}}</span>
+                            <img :src="require(`@/assets/img/qbbimg/0${gimg<10?'0'+gimg:gimg}.BMP`)">
+                            <span style="display:block;">{{gimg <10 ?'0'+gimg:gimg}}</span>
                              <!-- <img v-if="`${gimg}>10`" :src="require(`@/assets/img/qbbimg/0${gimg}.BMP`)"> -->
                           </span>
                           
                           
-                          <span v-for="(gimg,index) in 63" :key="index" style="margin-left:10px;margin-right:5px;display:inline-block;">
+                          <!-- <span v-for="(gimg,index) in 63" :key="index" style="margin-left:10px;margin-right:5px;display:inline-block;">
                             <img  :src="require(`@/assets/img/qbbimg/0${gimg}.BMP`)">
                             <span style="display:block;">{{index}}</span>
-                             <!-- <img v-if="`${gimg}>10`" :src="require(`@/assets/img/qbbimg/0${gimg}.BMP`)"> -->
-                          </span>
+                             <img v-if="`${gimg}>10`" :src="require(`@/assets/img/qbbimg/0${gimg}.BMP`)">
+                          </span> -->
                           
                         </div>
                       </div>
@@ -230,6 +230,8 @@ import axios from 'axios'
   float:right;
   width:80%;
   margin-top:-140px;
+    overflow-x:auto
+
   }
   .bj-img-rbottom{
     width:100%;
