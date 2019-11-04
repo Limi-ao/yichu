@@ -1,0 +1,687 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+/* 设置默认字体 */
+body,
+button, input, select, textarea { /* for ie */
+    /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
+    font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+}
+
+h1 {
+    font-size: 18px; /* 18px / 12px = 1.5 */
+}
+
+h2 {
+    font-size: 16px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+h4, h5, h6 {
+    font-size: 100%;
+}
+
+address, cite, dfn, em, var {
+    font-style: normal;
+}
+/* 将斜体扶正 */
+code, kbd, pre, samp, tt {
+    font-family: "Courier New", Courier, monospace;
+}
+/* 统一等宽字体 */
+small {
+    font-size: 12px;
+}
+/* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul, ol {
+    list-style: none;
+}
+
+/* 重置文本格式元素 */
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+/* 重置表单元素 */
+legend {
+    color: #000;
+}
+/* for ie6 */
+fieldset, img {
+    border: none;
+}
+/* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+
+/* 重置表格元素 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+    border: none;
+    height: 1px;
+}
+
+.abs {
+    position: absolute;
+}
+
+.res {
+    position: relative;
+}
+
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
+html {
+    overflow-y: scroll;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: '微软雅黑';
+    background: url(../img/bg2.jpg) center center/100% 100% no-repeat fixed;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 1000px;
+}
+
+.headerbg {
+    width: 100%;
+    height: 88px;
+    background: url(../img/headerbg.png) no-repeat;
+    position: absolute;
+    background-size: contain;
+}
+
+    .headerbg h2 {
+        font-size: 22px;
+        height: 24px;
+        line-height: 24px;
+        color: #fff;
+        position: absolute;
+        top: 26px;
+        left: 50%;
+        width: 240px;
+        margin-left: -120px;
+    }
+
+.dutylist {
+    height: 44px;
+    line-height: 44px;
+    overflow: hidden;
+    position: relative;
+    font-size: 12px;
+    color: #bbe2f1;
+    top: 42px;
+}
+
+    .dutylist ul li {
+        color: #bbe2f1;
+    }
+
+    .dutylist span {
+        position: absolute;
+        width: 96px;
+        left: 42px;
+    }
+
+    .dutylist .list_scroll {
+        left: 134px;
+        position: absolute;
+        width: 164px;
+    }
+
+.iconperson {
+    top: 8px;
+    position: absolute;
+    left: 10px;
+}
+
+.datebox {
+    position: absolute;
+    right: 44px;
+    color: #1fdef5;
+    width: 180px;
+    font-size: 14px;
+}
+
+.icontime {
+    position: absolute;
+    top: 6px;
+}
+
+.datebox p {
+    position: absolute;
+    left: 30px;
+    top: 12px;
+}
+
+@media screen and (max-width: 1600px) {
+    .headerbg {
+        height: 96px;
+        background: url(../img/headerbg1600.png) no-repeat;
+	background-size: cover;
+    }
+
+    .dutylist {
+        height: 48px;
+        line-height: 48px;
+        top: 42px;
+    }
+
+        .dutylist span {
+            width: 86px;
+            left: 24px;
+        }
+
+        .dutylist .list_scroll {
+            left: 106px;
+            width: 108px;
+        }
+
+    .iconperson {
+        top: 14px;
+        position: absolute;
+        left: 0px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .datebox {
+        right: 12px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .headerbg {
+        height: 86px;
+        background: url(../img/headerbg1440.png) no-repeat;
+	background-size: cover;
+    }
+
+    .dutylist {
+        height: 42px;
+        line-height: 42px;
+        top: 40px;
+    }
+
+        .dutylist span {
+            width: 86px;
+            left: 24px;
+        }
+
+        .dutylist .list_scroll {
+            left: 106px;
+            width: 108px;
+        }
+
+    .iconperson {
+        top: 8px;
+        position: absolute;
+        left: 0px;
+        width: 22px;
+        height: 22px;
+    }
+
+
+    .datebox {
+        right: 5px;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .headerbg {
+        height: 66px;
+        background: url(../img/headerbg1366.png) no-repeat;
+	background-size: cover;
+    }
+
+    .dutylist {
+        height: 30px;
+        line-height: 30px;
+        top: 28px;
+    }
+
+        .dutylist span {
+            width: 86px;
+            left: 16px;
+        }
+
+        .dutylist .list_scroll {
+            left: 96px;
+            width: 108px;
+        }
+
+    .headerbg h2 {
+        font-size: 18px;
+        top: 20px;
+        width: 194px;
+        margin-left: -88px;
+    }
+
+    .iconperson {
+        top: 6px;
+        position: absolute;
+        left: 0px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .datebox p {
+        top: 6px;
+    }
+
+    .icontime {
+        top: 4px;
+        width: 18px;
+        height: 18px;
+        left: 11px;
+    }
+}
+
+.sysDisplay {
+    width: 320px;
+    height: auto;
+    position: absolute;
+    left: 24px;
+    top: 120px;
+}
+
+.tp {
+    background: url(../img/lftop.png) no-repeat;
+    width: 320px;
+    height: 42px;
+    left: 0;
+    top: 0;
+}
+/* .tc{background: url(../img/lfcenter.png) repeat-y;width:320px;height:200px;top:42px;left:0;} */
+.tc {
+    margin-left: 2px;
+    border: 1px solid;
+    border-top: none;
+    border-bottom: none;
+    border-image: -webkit-linear-gradient(#21e7ff,#2d77f3)5 10; /* Safari 5.1 - 6.0 */
+    border-image: -o-linear-gradient(#21e7ff,#2d77f3)5 10; /* Opera 11.1 - 12.0 */
+    border-image: -moz-linear-gradient(#21e7ff,#2d77f3)5 10; /* Firefox 3.6 - 15 */
+    border-image: linear-gradient(#21e7ff,#2d77f3)5 10; /* 标准的语法 */
+    top: 42px;
+    left: 0;
+    background: url(../img/bgcenter.png) repeat;
+}
+
+.tb {
+    background: url(../img/lfbottom.png) no-repeat;
+    width: 320px;
+    height: 54px;
+    bottom: -96px;
+    left: 0;
+}
+
+.tp h3 {
+    font-size: 16px;
+    height: 34px;
+    line-height: 34px;
+    color: #fff;
+    position: absolute;
+    top: 1px;
+    left: 110px;
+}
+
+.sys {
+    padding-top: 16px;
+    background: url(../img/lfsysbg-blue.png) no-repeat;
+    font-size: 14px;
+    width: 288px;
+    height: 72px;
+    left: 11px;
+    top: 16px;
+    cursor:pointer;
+}
+
+    .sys.alarm {
+        background: url(../img/lfsysbg-red.png) no-repeat;
+    }
+
+    .sys p {
+        left: 66px;
+        top: 22px;
+        color: #fff;
+        overflow: hidden;
+        width: 144px;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .sys span {
+        right: 46px;
+        top: 22px;
+        color: #2fd989;
+    }
+
+    .sys.alarm span {
+        color: #e34336;
+    }
+
+    .sys:last-child {
+        bottom: -42px;
+        z-index: 2;
+        top: auto;
+        margin-top: -26px;
+    }
+
+.popupBox {
+    color: #69f6f9;
+    width: 306px;
+    height: 122px;
+    background: url(../img/bgcenter.png) repeat;
+    padding: 14px;
+    border: 1px solid #20bce6;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -o-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s; /* Safari 和 Chrome */
+    position: absolute;
+    top: 200px;
+    left: 760px;
+}
+
+    .popupBox h4 {
+        height: 20px;
+        line-height: 20px;
+        padding-bottom: 8px;
+    }
+
+    .popupBox img {
+        vertical-align: middle;
+    }
+
+    .popupBox span {
+        vertical-align: middle;
+        padding-left: 6px;
+        display: inline-block;
+        line-height: 20px;
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    .popupBox .popuptxt {
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+.popupBox2 {
+    height: 246px;
+    top: 400px;
+    left: 1300px;
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s; /* Safari 和 Chrome */
+}
+
+.popupBox .example td, .popupBox .example th {
+    width: 76.5px;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+}
+
+.popupBox3 {
+    width: 400px;
+    height: 380px;
+    top: 460px;
+    left: 450px;
+    animation-delay: 3s;
+    background: url(../img/bgcenter.png) !important;
+    -webkit-animation-delay:3s; /* Safari 和 Chrome */
+}
+
+.popupcont {
+    width: 400px;
+    height: 360px;
+}
+
+    .popupcont canvas {
+        margin-top: -30px !important;
+    }
+
+.sysNav1 {
+position:absolute;
+top:150px;
+left:10px;
+}
+.boxbg {
+    width:250px;
+    height: 50px;
+    margin-bottom:5px;
+    line-height: 50px;
+    background: url(../img/dutybg.png) no-repeat;
+    background-size:100% 100%;
+    cursor:pointer;
+}
+    .boxbg.noselect {
+        width: 250px;
+        height: 50px;
+        margin-bottom: 5px;
+        line-height: 50px;
+        background: url(../img/noselectdutybg.png) no-repeat;
+        background-size: 100% 100%;
+    }
+.s1icontime {
+    float: left;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+.boxbg p {
+    color: #1fdef5;
+    margin-left: 48px;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+.boxbg.noselect p {
+    color: #c6f9ff;
+    margin-left: 48px;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.nav2 {
+    width: 260px;
+    height: auto;
+    position: absolute;
+    right: 24px;
+    top: 120px;
+}
+.nav2abs {
+    position: absolute;
+}
+.nav2tp {
+    background: url(../img/lftop.png) no-repeat;
+    width: 260px;
+    height: 40px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    line-height: 40px;
+    background-size: 100% 100%;
+}
+.nav2res {
+    position: relative;
+}
+.nav2tc {
+    margin-left: 2px;
+    border: 2px solid;
+    border-top: none;
+    border-bottom: none;
+    border-image: -webkit-linear-gradient(#1aabcf,#2d77f3)5 10; /* Safari 5.1 - 6.0 */
+    border-image: -o-linear-gradient(#1aabcf,#2d77f3)5 10; /* Opera 11.1 - 12.0 */
+    border-image: -moz-linear-gradient(#1aabcf,#2d77f3)5 10; /* Firefox 3.6 - 15 */
+    border-image: linear-gradient(#1aabcf,#2d77f3)5 10; /* 标准的语法 */
+    top: 40px;
+    left: 0;
+    background: url(../img/bgcenter.png) repeat;
+}
+.navsys {
+    padding-top: 16px;
+    background: url(../img/nav2bg.png) no-repeat;
+    font-size: 20px;
+    width: 230px;
+    height: 43px;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+    .navsys.noseleced {
+        background: url(../img/nav2bg_ns.png) no-repeat;
+    }
+    .navsys p {
+        left: 50px;
+        top: 12px;
+        color: #00ffde;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-top: -2px;
+    }
+
+    .navsys.noseleced p {
+        color: #fff;
+    }
+
+
+
+    .navsys:last-child {
+        bottom: -42px;
+        z-index: 2;
+        top: auto;
+        margin-top: -26px;
+    }
+.nav2abs {
+    position: absolute;
+}
+.nav2tb {
+    background: url(../img/lfbottom.png) no-repeat;
+    width: 260px;
+    height: 44px;
+    bottom: -84px;
+    left: 0;
+    background-size:100% 100%;
+}
+#devInfo li {
+    list-style:square inside !important;
+    line-height: 50px;
+    color:#97fff6;
+    font-size: 24px;
+    padding-left: 10px !important;
+    border-bottom:1px solid rgba(22, 255, 235, 0.33);
+    cursor:pointer;
+    background:linear-gradient(to right, rgba(33, 132, 255, 0.38) 0%,rgba(15, 32, 81, 0.34) 100%);
+}
+#devInfo li.selected {
+    color: #16ffeb;
+    background: linear-gradient(to right, rgba(23, 152, 167, 0.8) 0%,rgba(15, 32, 81, 0.34) 100%);
+}
+#ddevInfo li {
+    list-style: square inside !important;
+    line-height: 50px;
+    color: #97fff6;
+    font-size: 20px;
+    padding-left: 10px !important;
+    border-bottom: 1px solid rgba(22, 255, 235, 0.33);
+    cursor: pointer;
+    background: linear-gradient(to right, rgba(33, 132, 255, 0.38) 0%,rgba(15, 32, 81, 0.34) 100%);
+}
+
+    #ddevInfo li.selected {
+        color: #16ffeb;
+        background: linear-gradient(to right, rgba(23, 152, 167, 0.8) 0%,rgba(15, 32, 81, 0.34) 100%);
+    }
+.infoTitle {
+    font-size: 24px;
+    line-height: 30px;
+}
+.infoDetail {
+    font-size: 24px;
+    line-height: 30px;
+    /*text-indent: 2em;*/
+}
+.infoDetail_hascube{
+        font-size: 24px;
+        line-height:30px;
+       /*text-indent: 2em;*/
+        padding-left:30px;
+}
+.highLight1 {
+    color:#ffed00;
+    font-weight:700;
+}
+.highLight2 {
+    color:#ff1100;
+    font-weight:700;
+}
+.highLight3 {
+    color: #ffed00;
+    font-weight: 700;
+    border-bottom:1px solid red;
+    cursor:pointer;
+}
+.highLight4 {
+    color: #00ffba;
+}
+.cubeStyle {
+    font-size: 30px;
+    margin-left: -30px;
+    margin-right: 10px;
+}
+.jiantouStyle {
+        margin-left: 40px;
+}
+.layerTable {
+border:1px solid white;
+
+}
+.layerTable td {
+    border: 1px solid white;
+    font-size:20px;
+    padding:10px;
+}

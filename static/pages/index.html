@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html style="padding:0px;margin:0px;">
+<head>
+    <style>
+        body {
+            /*background: linear-gradient(to top right, #000000 0%, #001925 60%, #003a73 100%);*/
+            padding: 0px;
+            margin: 0px;
+            background: url(../img/bg2.jpg) center center/100% 100% no-repeat fixed;
+            background-size: 100% 100%;
+        }
+
+
+
+        .canvas_frame {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            overflow: hidden;
+        }
+
+        .toolbar {
+            display: block;
+            position: absolute;
+             right: 30px;
+            /*top: 175px;*/
+            bottom:30px;
+            width: 32px;
+            height: auto;
+            background: rgba(73, 178, 195, 0.34902);
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .toolbar img {
+            float: left;
+            margin: 5px;
+            width: 24px;
+            height: 24px;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .Stats_output {
+            display: block;
+            position: absolute;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        #canvas-frame > canvas {
+            border-top-left-radius: 7px;
+            border-bottom-right-radius: 7px;
+            border-top-right-radius: 7px;
+            border-bottom-left-radius: 7px;
+        }
+
+        .WT3dShowBoxClass {
+            box-shadow: inset 0px 0px 18px rgb(204, 234, 255) !important;
+            background: rgba(3, 62, 84, 0.75) !important;
+            -moz-border-radius: 5px !important;
+            -webkit-border-radius: 5px !important;
+            border: 1px solid #fff !important;
+            color: white !important;
+        }
+
+            .WT3dShowBoxClass .layui-layer-title {
+                background: rgba(255, 255, 255, 0) !important;
+                border-bottom: 1px solid rgba(238, 238, 238, 0.12) !important;
+                color: white !important;
+            }
+
+            .WT3dShowBoxClass .layui-layer-setwin .layui-layer-ico.layui-layer-close.layui-layer-close1 {
+                background: url(/css/layer/skin/default/close_16.png) no-repeat !important;
+            }
+
+        .table {
+            width: 100%;
+        }
+
+            .table th {
+                text-align: center;
+                background-color: rgba(0,0,0,0.1);
+                line-height: 30px;
+                font-size: 18px;
+            }
+
+            .table td {
+                text-align: center;
+                line-height: 32px;
+                font-size: 18px;
+            }
+
+        .layui-layer {
+            background: rgba(16, 40, 104, 0.9) !important;
+            box-shadow: none !important;
+        }
+
+        .cabDetail {
+            color: #00edfb;
+        }
+
+        .layui-layer-title {
+            padding: 0 80px 0 20px;
+            height: 42px;
+            line-height: 42px;
+            border-bottom: 1px solid #0096ff !important;
+            font-size: 22px !important;
+            color: #acfaff !important;
+            overflow: hidden;
+            background-color: rgba(17, 79, 152, 0.6) !important;
+            border-radius: 2px 2px 0 0;
+        }
+        .layui-layer-content {
+            color: white;
+        }
+    </style>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="/css/iconfont.css" rel="stylesheet" />
+    <link href="../plugs/layer/layui/css/layui.css" rel="stylesheet" />
+    <link href="../css/animate.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../plugs/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <script src="../plugs/jquery-2.2.2.js"></script>
+    <script src="../plugs/jquery.mCustomScrollbar.js"></script>
+    <script src="../plugs/layer/layer.js"></script>
+    <script src="../plugs/layer/laydate/laydate.js"></script>
+    <script src="../plugs/layer/layui/layui.js"></script>
+    <script src="../js/commonFunction.js"></script>
+    <script src="../js/h5Player/h5Video.js"></script>
+    <script src="../plugs/WT3D/WT3D.core.min.js"></script>
+    <script src="../plugs/WT3D/Mirror.js"></script>
+    <script src="../plugs/WT3D/WaterShader.js"></script>
+    <script src="../plugs/WT3D/OBJLoader.js"></script>
+    <script src="../plugs/WT3D/MTLLoader.js"></script>
+    <script src="../plugs/WT3D/Detector.js"></script>
+    <script src="../plugs/WT3D/OrbitControls.js"></script>
+    <script src="../plugs/WT3D/TransformControls.js"></script>
+    <script src="../plugs/WT3D/stats.min.js"></script>
+    <script src="../js/models/build.js"></script>
+    <script src="../js/business/buildBusiness.js"></script>
+    <script src="../js/business/devModelBusiness.js"></script>
+    <script src="../plugs/WT3D/initPage.js"></script>
+    <script src="../plugs/jquery.singalr.js"></script>
+    <script src="../plugs/echarts.min.js"></script>
+</head>
+<body id="mainBody" onload="threeStart(0);" style="padding:0px;margin:0px;">
+    <script>
+        if (!Detector.webgl) {
+            layer.alert("您的浏览器不支持3D功能,请使用支持WebGL的浏览器（例如：chrome浏览器、ie11以上浏览器等）");
+        }
+    </script>
+    <div id="dataCanvasList" style="position:absolute;z-index:-1;display:none;width:5px;height:5px;overflow:auto;"><div style="width:10px;height:10px;float:left;position:relative;"></div></div>
+    <div id="canvas-frame" class="canvas_frame"></div>
+    <script>
+        $(document).ready(function () {
+            showLoading(getBuildData().length, null, function () {
+                backToInitCameraPosition(2000, function () {
+                    WT3DObj.controls.maxPolarAngle = Math.PI / 2;
+                });
+            });
+            if (parent) {
+                parent.Object3D = window;
+            }
+        });
+
+        function backToInitCameraPosition(timelong, callback) {
+            WT3DObj.commonFunc.changeCameraPosition({ x: 18040.864577056498, y: 6280.190552029326, z: 201.40019542006348 },
+                    { x: 9059.889017397863, y: 2937.4757219694648, z: -2656.6298187176426 }, timelong,
+             function () {
+                 if (callback) {
+                     callback();
+                 }
+             });
+        }
+    </script>
+</body>
+
+
+</html>

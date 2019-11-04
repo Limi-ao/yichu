@@ -1,0 +1,59 @@
+body,html{
+  font-family: '微软雅黑' !important;
+}
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden
+}
+.flex{
+  display: flex;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+}
+.flex-end{
+  display: flex;
+  justify-content: flex-end;
+}
+.el-dialog__wrapper .el-dialog{
+  color: #ffffff;
+  background: transparent;
+  background-image:url('../../assets/img/baseAlert.png');
+  background-size: 100% 100%  ;
+}
+.el-dialog__wrapper .el-dialog__header{
+  text-align: center;
+  padding: 0px 20px 10px;
+}
+.el-dialog__title{
+  color: #ffffff;
+}
+.el-form-item__label{
+  color: #ffffff;
+}
+.el-dialog__close.el-icon.el-icon-close{
+  font-size: 24px;
+}
